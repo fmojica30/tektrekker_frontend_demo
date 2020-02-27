@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/tektrakker_frontend_demo/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/tektrakker_frontend_demo/static/js/main.d7e14411.chunk.js",
-    "main.js.map": "/tektrakker_frontend_demo/static/js/main.d7e14411.chunk.js.map",
-    "runtime-main.js": "/tektrakker_frontend_demo/static/js/runtime-main.bc5b39f5.js",
-    "runtime-main.js.map": "/tektrakker_frontend_demo/static/js/runtime-main.bc5b39f5.js.map",
-    "static/css/2.d063f0c7.chunk.css": "/tektrakker_frontend_demo/static/css/2.d063f0c7.chunk.css",
-    "static/js/2.5cc401e6.chunk.js": "/tektrakker_frontend_demo/static/js/2.5cc401e6.chunk.js",
-    "static/js/2.5cc401e6.chunk.js.map": "/tektrakker_frontend_demo/static/js/2.5cc401e6.chunk.js.map",
-    "index.html": "/tektrakker_frontend_demo/index.html",
-    "precache-manifest.455ee498a00d206e78ec239e62c89812.js": "/tektrakker_frontend_demo/precache-manifest.455ee498a00d206e78ec239e62c89812.js",
-    "service-worker.js": "/tektrakker_frontend_demo/service-worker.js",
-    "static/css/2.d063f0c7.chunk.css.map": "/tektrakker_frontend_demo/static/css/2.d063f0c7.chunk.css.map",
-    "static/css/main.5ecd60fb.chunk.css.map": "/tektrakker_frontend_demo/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.5cc401e6.chunk.js.LICENSE.txt": "/tektrakker_frontend_demo/static/js/2.5cc401e6.chunk.js.LICENSE.txt"
+    "main.css": "/tektrekker_frontend_demo/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/tektrekker_frontend_demo/static/js/main.f1af51cd.chunk.js",
+    "main.js.map": "/tektrekker_frontend_demo/static/js/main.f1af51cd.chunk.js.map",
+    "runtime-main.js": "/tektrekker_frontend_demo/static/js/runtime-main.77774454.js",
+    "runtime-main.js.map": "/tektrekker_frontend_demo/static/js/runtime-main.77774454.js.map",
+    "static/css/2.d063f0c7.chunk.css": "/tektrekker_frontend_demo/static/css/2.d063f0c7.chunk.css",
+    "static/js/2.bc1253be.chunk.js": "/tektrekker_frontend_demo/static/js/2.bc1253be.chunk.js",
+    "static/js/2.bc1253be.chunk.js.map": "/tektrekker_frontend_demo/static/js/2.bc1253be.chunk.js.map",
+    "index.html": "/tektrekker_frontend_demo/index.html",
+    "precache-manifest.f157a7a89fc502aae4d68f7e4949be0f.js": "/tektrekker_frontend_demo/precache-manifest.f157a7a89fc502aae4d68f7e4949be0f.js",
+    "service-worker.js": "/tektrekker_frontend_demo/service-worker.js",
+    "static/css/2.d063f0c7.chunk.css.map": "/tektrekker_frontend_demo/static/css/2.d063f0c7.chunk.css.map",
+    "static/css/main.5ecd60fb.chunk.css.map": "/tektrekker_frontend_demo/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.bc1253be.chunk.js.LICENSE.txt": "/tektrekker_frontend_demo/static/js/2.bc1253be.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.bc5b39f5.js",
+    "static/js/runtime-main.77774454.js",
     "static/css/2.d063f0c7.chunk.css",
-    "static/js/2.5cc401e6.chunk.js",
+    "static/js/2.bc1253be.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.d7e14411.chunk.js"
+    "static/js/main.f1af51cd.chunk.js"
   ]
 }
