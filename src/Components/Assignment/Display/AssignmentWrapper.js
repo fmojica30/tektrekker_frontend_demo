@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 
 //Redux imports
-import * as assignmentActions from "../../../Store/Actions/assignmentActions";
 import * as actionTypes from "../../../Store/Actions/actionTypes";
 
 // Component Imports
@@ -36,7 +35,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getStudents: () => assignmentActions.get_students(),
   changeToGrades: () => dispatch({ type: actionTypes.CHANGE_STEP_TO_GRADES }),
   changeToComplete: () =>
     dispatch({ type: actionTypes.CHANGE_STEP_TO_COMPLETE })

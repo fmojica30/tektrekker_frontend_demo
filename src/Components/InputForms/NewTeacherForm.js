@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "../../axiosInstance";
 
 import { Row, Col, Form, Icon, Input, Button, Card } from "antd";
 
@@ -21,14 +20,6 @@ const NewTeacherForm = props => {
 
     resetState();
     // console.log(studentObject);
-    axios
-      .post("/api/teacher/", teacherObject)
-      .then(res => {
-        console.log(res);
-      })
-      .catch(err => {
-        console.log(err);
-      });
   };
 
   return (

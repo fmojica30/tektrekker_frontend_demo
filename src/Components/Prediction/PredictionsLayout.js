@@ -1,20 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Prediction from "./Prediction";
 import { Row, Col } from "antd";
-
-import axios from "../../axiosInstance";
+import { connect } from "react-redux";
 
 const PredictionsLayout = props => {
-  const [students, setStudents] = useState([]);
-
-    return (
+  return (
     <Row gutter={[16, 16]}>
-      {students !== [] ? (
-        students.map(student => {
+      {props.students !== [] ? (
+        props.students.students.map(student => {
           return (
-            <div key={student.id}>
+            <div key={student.first_name}>
               <Col span={4}>
-                <Prediction student={student.id} />
+                <Prediction student={student} />
               </Col>
             </div>
           );
@@ -26,4 +23,7 @@ const PredictionsLayout = props => {
   );
 };
 
-export default PredictionsLayout;
+const mapStateToProps = state => ({
+  students: state.students
+});
+export default connect(mapStateToProps)(PredictionsLayout);

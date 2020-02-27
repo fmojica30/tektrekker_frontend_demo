@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Row, Col, Form, Icon, Input, Card, Select } from "antd";
 
-import axios from "../../axiosInstance";
 import * as actionTypes from "../../Store/Actions/actionTypes";
 
 // Component Imports
@@ -22,15 +21,7 @@ const AssignmentForm = props => {
       name: assignmentName,
       tek_choice: tek
     };
-    axios
-      .post("/api/assig/assignment/", assignment)
-      .then(res => {
-        console.log(res);
-        props.setAssignment(res.data);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    props.setAssignment(assignment);
     props.changeToGrades();
   };
 

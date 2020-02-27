@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
+import React, { useState } from "react";
 import { Table, Icon, InputNumber } from "antd";
 
-import * as assignmentActions from "../../Store/Actions/assignmentActions";
 import * as actionTypes from "../../Store/Actions/actionTypes";
 
 import AssignmentButton from "./Display/AssignmentButton";
-import axios from "../../axiosInstance";
 
 const GradesForm = props => {
   const [grades, setGrades] = useState("");
@@ -45,7 +43,7 @@ const GradesForm = props => {
     const newGrade = value;
     const lookup = idx.toString();
     if (grades === "") {
-      setGrades([...props.assignment.students]);
+      setGrades([...props.students]);
       setGrades(prevGrades => {
         const newObject = prevGrades[lookup];
         newObject.grade = newGrade;
@@ -68,46 +66,38 @@ const GradesForm = props => {
 
   const submitHandler = e => {
     e.preventDefault();
-    console.log(grades);
-    const newGrades = [];
-    for (let grade in grades) {
-      const newGrade = {
-        student: grades[grade].id,
-        group: props.assignment.assignment.group,
-        assignment: props.assignment.assignment.id,
-        grade: grades[grade].grade
+    // console.log(grades);
+    const newGrades = Object.values(grades);
+    // console.log(newGrades);
+    for (let i = 0; i < newGrades.length; i++) {
+      let current = newGrades[i];
+      let newEntry = {
+        first: current.first_name,
+        last: current.last_name,
+        grade: current.grade,
+        group: props.assignment.assignment.tek_choice
       };
-      newGrades.push(newGrade);
+      // console.log(newEntry);
+      props.addGrade(newEntry);
     }
-    console.log(newGrades);
-    axios
-      .post("/api/assig/grade/", newGrades)
-      .then(res => {
-        console.log(res);
-        props.changeToComplete();
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    props.changeToComplete();
   };
 
-  useEffect(() => {
-    props.getStudents();
-  }, []);
+  const source = [...props.students];
 
   return (
     <div>
       <form onSubmit={e => submitHandler(e)}>
-        {props.assignment.assignment ? (
+        {props.students ? (
           <h1 style={{ marginTop: "15px" }}>
             Input Grades for : {props.assignment.assignment.name}
           </h1>
         ) : (
           <Icon type="loading" />
         )}
-        {props.assignment.students !== [] ? (
+        {props.students !== [] ? (
           <Table
-            dataSource={props.assignment.students}
+            dataSource={source}
             columns={columns}
             rowKey="id"
             pagination={false}
@@ -123,13 +113,14 @@ const GradesForm = props => {
 
 const mapStateToProps = state => ({
   assignment: state.assignment,
-  assignmentForm: state.assignmentForm
+  assignmentForm: state.assignmentForm,
+  students: state.students.students
 });
 
 const mapDispatchToProps = dispatch => ({
-  getStudents: () => dispatch(assignmentActions.get_students()),
   changeToComplete: () =>
-    dispatch({ type: actionTypes.CHANGE_STEP_TO_COMPLETE })
+    dispatch({ type: actionTypes.CHANGE_STEP_TO_COMPLETE }),
+  addGrade: data => dispatch({ type: actionTypes.ADD_GRADE, payload: data })
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(GradesForm);

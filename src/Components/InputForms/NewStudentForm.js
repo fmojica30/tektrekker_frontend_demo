@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import axios from "../../axiosInstance";
-
+import { connect } from "react-redux";
 import { Row, Col, Form, Icon, Input, Button, Card } from "antd";
+
+import * as actionTypes from "../../Store/Actions/actionTypes";
 
 const NewStudentForm = props => {
   const [firstName, setFirstName] = useState("");
@@ -15,20 +16,11 @@ const NewStudentForm = props => {
   const submitStudentHandler = e => {
     e.preventDefault();
     const studentObject = {
-      first_name: firstName,
-      last_name: lastName
+      first: firstName,
+      last: lastName
     };
-
+    props.addStudent(studentObject);
     resetState();
-    // console.log(studentObject);
-    axios
-      .post("/api/student/", studentObject)
-      .then(res => {
-        console.log(res);
-      })
-      .catch(err => {
-        console.log(err);
-      });
   };
 
   return (
@@ -88,4 +80,12 @@ const NewStudentForm = props => {
   );
 };
 
-export default NewStudentForm;
+const mapStateToProps = state => ({
+  students: state.students
+});
+
+const mapDispatchToProps = dispatch => ({
+  addStudent: student =>
+    dispatch({ type: actionTypes.ADD_STUDENT, payload: student })
+});
+export default connect(mapStateToProps, mapDispatchToProps)(NewStudentForm);
